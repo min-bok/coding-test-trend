@@ -37,8 +37,26 @@ rows.forEach((e) => {
   year.push(e["연도"]);
 });
 
-router.get("/", (req, res) => {
-  res.send("222");
+const result = [];
+
+for (let i = 0; i < rows.length; i++) {
+  let val = {
+    name: name[i],
+    field: field[i],
+    first: first[i],
+    second: second[i],
+    posting: posting[i],
+    year: year[i],
+  };
+  result.push(val);
+}
+
+router.get("/", async (req, res) => {
+  try {
+    return res.send(result);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 export default router;

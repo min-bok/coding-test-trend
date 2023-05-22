@@ -8,10 +8,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use("/api", routerApi);
 
-app.get("/", function (req, res) {
-  res.send("hello NodeJs");
-});
-
 app.get("/", (req, res) => {
   res.send("hello world");
 });
