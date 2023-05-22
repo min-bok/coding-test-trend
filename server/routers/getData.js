@@ -51,6 +51,15 @@ for (let i = 0; i < rows.length; i++) {
   result.push(val);
 }
 
+const test = [
+  { 기업명: "테스트", 포지션: "백엔드" },
+  { 기업명: "테스트2", 포지션: "데브옵스" },
+];
+
+// sheet.addRow(1, test, (err) => {
+//   console.log(err);
+// });
+
 router.get("/", async (req, res) => {
   try {
     return res.send(result);

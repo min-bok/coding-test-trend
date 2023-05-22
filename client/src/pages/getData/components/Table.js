@@ -86,10 +86,6 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(name, calories, fat) {
-  return { name, calories, fat };
-}
-
 export default function CustomPaginationActionsTable(data) {
   const result = data.data; // 엑셀시트에서 가져온 데이터
   const [page, setPage] = React.useState(0);
