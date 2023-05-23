@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 
@@ -11,64 +12,42 @@ function Header(props) {
   const { sections, title } = props;
 
   return (
-    <React.Fragment>
-      <Toolbar
-        sx={{
-          borderBottom: 1,
-          borderColor: "divider",
-        }}
-      >
-        <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="left"
-          noWrap
-          sx={{ flex: 1 }}
+    <Container maxWidth="lg">
+      <React.Fragment>
+        <Toolbar
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+          }}
         >
-          {title}
-        </Typography>
-        {sections.map((section) => (
-          <Link
+          <Typography
+            component="h2"
+            variant="h5"
             color="inherit"
+            align="left"
             noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
-            underline="none"
+            sx={{ flex: 1 }}
           >
-            {section.title}
-          </Link>
-        ))}
-        {/* <IconButton>
-          <SearchIcon />
-        </IconButton> */}
-        {/* <Button variant="outlined" size="small">
-          Sign up
-        </Button> */}
-      </Toolbar>
-      {/* <Toolbar
-        component="nav"
-        variant="dense"
-        // sx={{ justifyContent: "space-between", overflowX: "auto" }}
-        sx={{ overflowX: "auto" }}
-      >
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
-            underline="none"
-          >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar> */}
-    </React.Fragment>
+            <Link href="/" underline="none" color={"#000"}>
+              {title}
+            </Link>
+          </Typography>
+          {sections.map((section) => (
+            <Link
+              color="inherit"
+              noWrap
+              key={section.title}
+              variant="body2"
+              href={section.url}
+              sx={{ p: 1, flexShrink: 0 }}
+              underline="none"
+            >
+              {section.title}
+            </Link>
+          ))}
+        </Toolbar>
+      </React.Fragment>
+    </Container>
   );
 }
 

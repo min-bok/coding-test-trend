@@ -3,6 +3,10 @@ import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 export default function InputAdornments() {
   const [name, setName] = useState("");
@@ -66,6 +70,8 @@ export default function InputAdornments() {
     setLink(e.target.value);
   };
 
+  const defaultTheme = createTheme();
+
   const submitBtn = async (e) => {
     e.preventDefault();
     const url = "/api/data";
@@ -93,128 +99,127 @@ export default function InputAdornments() {
   };
 
   return (
-    <form method="POST" onSubmit={submitBtn}>
-      <TextField
-        fullWidth
-        label="기업명"
-        id="fullWidth"
-        onChange={handleNameChange}
-      />
-      <TextField
-        fullWidth
-        label="포지션"
-        id="fullWidth"
-        onChange={handlepPositionChange}
-      />
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={["신입", "경력"]}
-        sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="경력" />}
-        onChange={handlepCareerChange}
-      />
-      <fieldset>
-        <legend>1차 코딩테스트</legend>
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={[
-            "프로그래머스",
-            "HackerRank",
-            "Codility",
-            "Alice",
-            "LeetCode",
-            "BaekJoon",
-            "SWEA",
-            "기타",
-          ]}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="플랫폼" />}
-          onChange={handleFirstPlatform}
-        />
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={["유", "무"]}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="화상감독" />}
-          onChange={handleFirstDirector}
-        />
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={["가능", "불가능"]}
-          sx={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="외부 IDE 사용여부" />
-          )}
-          onChange={handleFirstIDE}
-        />
-      </fieldset>
-      <fieldset>
-        <legend>2차 코딩테스트</legend>
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={[
-            "프로그래머스",
-            "HackerRank",
-            "Codility",
-            "Alice",
-            "LeetCode",
-            "BaekJoon",
-            "SWEA",
-            "기타",
-          ]}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="플랫폼" />}
-          onChange={handleSecondPlatform}
-        />
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={["유", "무"]}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="화상감독" />}
-          onChange={handleSecondDirector}
-        />
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={["가능", "불가능"]}
-          sx={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="외부 IDE 사용여부" />
-          )}
-          onChange={handleSecondIDE}
-        />
-      </fieldset>
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={["공채", "수시"]}
-        sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="채용종류" />}
-        onChange={handleType}
-      />
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={["2020", "2021", "2022", "2023"]}
-        sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="연도" />}
-        onChange={handleYear}
-      />
-      <TextField
-        fullWidth
-        label="정보출처(링크)"
-        id="fullWidth"
-        onChange={handleLink}
-      />
-      <Button variant="contained" disableElevation type="submit">
-        작성완료
-      </Button>
-    </form>
+    <ThemeProvider theme={defaultTheme}>
+      <Container component="main" maxWidth="xs">
+        <Box component="form" onSubmit={submitBtn} noValidate sx={{ mt: 8 }}>
+          <TextField
+            fullWidth
+            label="기업명"
+            id="fullWidth"
+            onChange={handleNameChange}
+          />
+          <TextField
+            fullWidth
+            label="포지션"
+            id="fullWidth"
+            onChange={handlepPositionChange}
+          />
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={["신입", "경력"]}
+            renderInput={(params) => <TextField {...params} label="경력" />}
+            onChange={handlepCareerChange}
+          />
+          <fieldset>
+            <legend>1차 코딩테스트</legend>
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={[
+                "프로그래머스",
+                "HackerRank",
+                "Codility",
+                "Alice",
+                "LeetCode",
+                "BaekJoon",
+                "SWEA",
+                "기타",
+              ]}
+              renderInput={(params) => <TextField {...params} label="플랫폼" />}
+              onChange={handleFirstPlatform}
+            />
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={["유", "무"]}
+              renderInput={(params) => (
+                <TextField {...params} label="화상감독" />
+              )}
+              onChange={handleFirstDirector}
+            />
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={["가능", "불가능"]}
+              renderInput={(params) => (
+                <TextField {...params} label="외부 IDE 사용여부" />
+              )}
+              onChange={handleFirstIDE}
+            />
+          </fieldset>
+          <fieldset>
+            <legend>2차 코딩테스트</legend>
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={[
+                "프로그래머스",
+                "HackerRank",
+                "Codility",
+                "Alice",
+                "LeetCode",
+                "BaekJoon",
+                "SWEA",
+                "기타",
+              ]}
+              renderInput={(params) => <TextField {...params} label="플랫폼" />}
+              onChange={handleSecondPlatform}
+            />
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={["유", "무"]}
+              renderInput={(params) => (
+                <TextField {...params} label="화상감독" />
+              )}
+              onChange={handleSecondDirector}
+            />
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={["가능", "불가능"]}
+              renderInput={(params) => (
+                <TextField {...params} label="외부 IDE 사용여부" />
+              )}
+              onChange={handleSecondIDE}
+            />
+          </fieldset>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={["공채", "수시"]}
+            renderInput={(params) => <TextField {...params} label="채용종류" />}
+            onChange={handleType}
+          />
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={["2020", "2021", "2022", "2023"]}
+            renderInput={(params) => <TextField {...params} label="연도" />}
+            onChange={handleYear}
+          />
+          <TextField
+            fullWidth
+            label="정보출처(링크)"
+            id="fullWidth"
+            onChange={handleLink}
+          />
+          <Button variant="contained" disableElevation type="submit" fullWidth>
+            작성완료
+          </Button>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }

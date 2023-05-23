@@ -117,7 +117,7 @@ export default function CustomPaginationActionsTable(data) {
       >
         <TableHead>
           <TableRow>
-            <MyTableCell variant="head">기업명</MyTableCell>
+            <MyTableCell>기업명</MyTableCell>
             <MyTableCell align="right">포지션</MyTableCell>
             <MyTableCell align="right">공고</MyTableCell>
           </TableRow>

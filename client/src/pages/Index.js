@@ -76,32 +76,34 @@ const defaultTheme = createTheme();
 
 export default function Index() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <main>
-          {/* <MainFeaturedPost post={mainFeaturedPost} /> */}
-          <Grid container spacing={4} mt={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-            <GetData />
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
-          </Grid>
-        </main>
-      </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <main>
+            {/* <MainFeaturedPost post={mainFeaturedPost} /> */}
+            <Grid container spacing={4} mt={4}>
+              {featuredPosts.map((post) => (
+                <FeaturedPost key={post.title} post={post} />
+              ))}
+              <GetData />
+            </Grid>
+            <Grid container spacing={5} sx={{ mt: 3 }}>
+              <Main title="From the firehose" posts={posts} />
+              <Sidebar
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+              />
+            </Grid>
+          </main>
+        </Container>
+        <Footer
+          title="Footer"
+          description="Something here to give the footer a purpose!"
+        />
+      </ThemeProvider>
+    </>
   );
 }
