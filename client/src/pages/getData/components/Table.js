@@ -16,6 +16,7 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
+import { styled } from "@material-ui/core/styles";
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -89,7 +90,7 @@ TablePaginationActions.propTypes = {
 export default function CustomPaginationActionsTable(data) {
   const result = data.data; // 엑셀시트에서 가져온 데이터
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -104,14 +105,21 @@ export default function CustomPaginationActionsTable(data) {
     setPage(0);
   };
 
+  const MyTableCell = styled(TableCell)({
+    fontWeight: 700,
+  });
+
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
+      <Table
+        sx={{ minWidth: 500, fontWeight: "bold" }}
+        aria-label="custom pagination table"
+      >
         <TableHead>
           <TableRow>
-            <TableCell>기업명</TableCell>
-            <TableCell align="right">포지션</TableCell>
-            <TableCell align="right">공고</TableCell>
+            <MyTableCell variant="head">기업명</MyTableCell>
+            <MyTableCell align="right">포지션</MyTableCell>
+            <MyTableCell align="right">공고</MyTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

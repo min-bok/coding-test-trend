@@ -73,17 +73,6 @@ export default function InputAdornments() {
     const firstTest = [firstPlatform, firstDirector, firstIDE];
     const secondTest = [secondPlatform, secondDirector, secondIDE];
 
-    const val = {
-      name,
-      position,
-      career,
-      firstTest,
-      secondTest,
-      type,
-      year,
-      link,
-    };
-
     const data = [
       name,
       position,
