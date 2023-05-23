@@ -30,10 +30,10 @@ const year = [];
 
 rows.forEach((e) => {
   name.push(e["기업명"]);
-  field.push(e["분야"]);
+  field.push(e["직무"]);
   first.push(e["1차"]);
   second.push(e["2차"]);
-  posting.push(e["채용공고"]);
+  posting.push(e["공고종류"]);
   year.push(e["연도"]);
 });
 
@@ -51,19 +51,25 @@ for (let i = 0; i < rows.length; i++) {
   result.push(val);
 }
 
-const test = [
-  { 기업명: "테스트", 포지션: "백엔드" },
-  { 기업명: "테스트2", 포지션: "데브옵스" },
-];
-
-// sheet.addRow(1, test, (err) => {
-//   console.log(err);
-// });
+console.log(result);
 
 router.get("/", async (req, res) => {
   try {
     return res.send(result);
   } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/", async (req, res) => {
+  try {
+    let arr = [];
+    const data = req.body;
+    data.forEach((el) => arr.push(String(el)));
+    await sheet.addRow(arr);
+    res.send("입력이 완료되었습니다");
+  } catch (err) {
+    res.send("입력실패");
     console.log(err);
   }
 });

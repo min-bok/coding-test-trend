@@ -117,9 +117,9 @@ export default function CustomPaginationActionsTable(data) {
         <TableBody>
           {(rowsPerPage > 0
             ? result.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : result
+            : result && result
           ).map((row) => (
-            <TableRow key={row["name"]}>
+            <TableRow key={Math.random()}>
               <TableCell component="th" scope="row">
                 {row["name"]}
               </TableCell>

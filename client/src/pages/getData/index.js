@@ -8,14 +8,15 @@ const GetData = () => {
   useEffect(() => {
     get();
   }, []);
+
   const get = async () => {
     const url = "/api/data";
     const result = await axios.get(url);
 
+    console.log(result);
+
     setData(result.data);
   };
-
-  // console.log(data);
 
   return <CustomPaginationActionsTable data={data} />;
 };
