@@ -19,6 +19,7 @@ function Header(props) {
             borderBottom: 1,
             borderColor: "divider",
           }}
+          style={toolbarStyle}
         >
           <Typography
             component="h2"
@@ -45,6 +46,9 @@ function Header(props) {
               {section.title}
             </Link>
           ))}
+          <Button variant="outlined" size="small">
+            Sign up
+          </Button>
         </Toolbar>
       </React.Fragment>
     </Container>
@@ -59,6 +63,11 @@ Header.propTypes = {
     })
   ).isRequired,
   title: PropTypes.string.isRequired,
+};
+
+// style
+const toolbarStyle = {
+  minHeight: "80px",
 };
 
 export default Header;

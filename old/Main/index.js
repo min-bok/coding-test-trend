@@ -6,11 +6,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import GetData from "../getData";
+// import GetData from "../getData";
 import FeaturedPost from "../Main/components/FeaturedPost";
 import Main from "../Main/components/Main";
 import Sidebar from "../Main/components/Sidebar";
-// import Footer from "../Main/components/Footer";
 import post1 from "../Main/components/blog-post.1.md";
 import post2 from "../Main/components/blog-post.2.md";
 import post3 from "../Main/components/blog-post.3.md";
@@ -75,7 +74,7 @@ export default function Mainpage() {
               {featuredPosts.map((post) => (
                 <FeaturedPost key={post.title} post={post} />
               ))}
-              <GetData />
+              {/* <GetData /> */}
             </Grid>
             <Grid container spacing={5} sx={{ mt: 3 }}>
               <Main title="From the firehose" posts={posts} />
@@ -88,10 +87,6 @@ export default function Mainpage() {
             </Grid>
           </main>
         </Container>
-        {/* <Footer
-          title="Footer"
-          description="Something here to give the footer a purpose!"
-        /> */}
       </ThemeProvider>
     </>
   );

@@ -87,28 +87,24 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-export default function CustomPaginationActionsTable(data) {
-  const result = data.data; // 엑셀시트에서 가져온 데이터
+export default function CodingTestTable({ codingTestData }) {
+  const result = codingTestData; // 엑셀시트에서 가져온 데이터
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - result.length) : 0;
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
   const MyTableCell = styled(TableCell)({
     fontWeight: 700,
   });
-
   return (
     <TableContainer component={Paper}>
       <Table
