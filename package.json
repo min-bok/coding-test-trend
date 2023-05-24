@@ -1,0 +1,14 @@
+{
+  "name": "coding_test_trend",
+  "version": "1.0.0",
+  "description": "주요 기업의 코딩테스트 관련 경향",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-start": "cd client && npm run start",
+    "server-start": "cd server && npm run start",
+    "start": "npm run client-start && npm run server-start"
+  },
+  "author": "",
+  "license": "ISC"
+}

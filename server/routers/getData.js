@@ -23,17 +23,21 @@ const rows = await sheet.getRows();
 
 const name = [];
 const field = [];
+const career = [];
 const first = [];
 const second = [];
 const posting = [];
+const language = [];
 const year = [];
 
 rows.forEach((e) => {
   name.push(e["기업명"]);
   field.push(e["직무"]);
+  career.push(e["경력"]);
   first.push(e["1차"]);
   second.push(e["2차"]);
   posting.push(e["공고종류"]);
+  language.push(e["언어"]);
   year.push(e["연도"]);
 });
 
@@ -43,15 +47,17 @@ for (let i = 0; i < rows.length; i++) {
   let val = {
     name: name[i],
     field: field[i],
-    first: first[i],
-    second: second[i],
+    career: career[i],
+    first: first[i] ? first[i].split(",") : null,
+    second: second[i] ? second[i].split(",") : null,
     posting: posting[i],
+    language: language[i],
     year: year[i],
   };
   result.push(val);
 }
 
-console.log(result);
+// console.log(result);
 
 router.get("/", async (req, res) => {
   try {
