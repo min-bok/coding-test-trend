@@ -8,9 +8,9 @@ import axios from "axios";
 
 const MainTemplate = ({ codingTestData }) => {
   return (
-    <Grid item xs={12}>
+    <Layout>
       <CodingTestTable codingTestData={codingTestData} />
-    </Grid>
+    </Layout>
   );
 };
 

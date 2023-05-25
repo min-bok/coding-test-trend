@@ -1,5 +1,5 @@
 import React from "react";
-// import { Mobile, TabletPC } from "../../../utils/mediaQuery";
+import { Mobile, TabletPC } from "../../../utils/mediaQuery";
 import Footer from "./Footer";
 import Header from "./Header";
 // import MobileHeader from "./MobileHeader";
@@ -9,24 +9,12 @@ import Header from "./Header";
 function Layout({ simple, children }) {
   return (
     <>
-      {/* { simple? (
-        <>
-          <SimpleHeader />
-          {children}
-          <SimpleFooter />
-        </>
-      ) : (
-        <>
-          <Mobile>
-            <MobileHeader />
-          </Mobile>
-          <TabletPC>
-            <Header />
-          </TabletPC>
-          {children}
-          <Footer />
-        </>
-      )} */}
+      <Mobile>Mobile</Mobile>
+      <TabletPC>
+        <Header />
+      </TabletPC>
+      {children}
+      <Footer />
     </>
   );
 }
