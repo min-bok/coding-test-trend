@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <SimpleHeader>
+    <SimpleHeader flexDefault>
       <StyledNav>
         <ul>
           {LINKS.menuLinks.map((m) => (

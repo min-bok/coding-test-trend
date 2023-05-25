@@ -1,4 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
+import GlobalStyle from "./GlobalStyle";
 
 import Routers from "./routes/Routers";
 
@@ -8,6 +9,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <GlobalStyle />
         <Routers />
       </BrowserRouter>
     </>

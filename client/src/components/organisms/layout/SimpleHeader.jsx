@@ -1,8 +1,16 @@
 import styled from "styled-components";
 import { COLOR, BREAK_POINT } from "../../../utils/constants";
+import Logo from "../../common/Logo";
 
 const SimpleHeader = ({ flexDefault, children }) => {
-  return <Header>{children}</Header>;
+  return (
+    <Header flexDefault={flexDefault}>
+      <div className="max-width">
+        <Logo />
+        {children}
+      </div>
+    </Header>
+  );
 };
 
 const Header = styled.header`
