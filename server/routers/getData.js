@@ -29,6 +29,7 @@ const second = [];
 const posting = [];
 const language = [];
 const year = [];
+const significant = [];
 
 rows.forEach((e) => {
   name.push(e["기업명"]);
@@ -39,6 +40,7 @@ rows.forEach((e) => {
   posting.push(e["공고종류"]);
   language.push(e["언어"]);
   year.push(e["연도"]);
+  significant.push(e["특이사항"]);
 });
 
 const result = [];
@@ -53,6 +55,7 @@ for (let i = 0; i < rows.length; i++) {
     posting: posting[i],
     language: language[i],
     year: year[i],
+    significant: significant[i] ? significant[i] : null,
   };
   result.push(val);
 }
